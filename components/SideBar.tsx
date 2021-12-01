@@ -86,8 +86,7 @@ const SideBar = ({ isActive, toggleActive }: SideBarType) => {
           query?.sectionId === menu.name.toLowerCase() ||
           pathname === menu.location;
 
-        const goToPage =
-          menu.name === "Home" ? "/" : `/section${menu.location}`;
+        const goToPage = menu.name === "Home" ? "/" : `${menu.location}`;
 
         return (
           <Link key={menu.name} href={goToPage}>

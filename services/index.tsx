@@ -1,9 +1,43 @@
 import { request, gql } from "graphql-request";
 
-const graphqlAPI =
-  "https://api-ap-northeast-1.graphcms.com/v2/ckwhcb47q0xpu01ze1iyxa67e/master";
+const graphqlAPI = process.env.GMS_ENDPOINT || "";
 
 //get posts by category: 7 for featured
+
+export const getCategories = async () => {
+  const query = gql`
+    query MyQuery {
+      categories {
+        slug
+      }
+    }
+  `;
+  const result = await request(graphqlAPI, query);
+  return result;
+};
+
+export const getPostsByCategory = async (slug: string) => {
+  const query = gql`
+    query MyQuery($slug: String) {
+      posts(where: { categories_every: { slug: $slug } }) {
+        slug
+        title
+        excerpt
+        author {
+          name
+        }
+        comments {
+          id
+        }
+        featuredImage {
+          url
+        }
+      }
+    }
+  `;
+  const result = await request(graphqlAPI, query, { slug });
+  return result.posts;
+};
 
 export const getHomePagePosts = async () => {
   const query = gql`

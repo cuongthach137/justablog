@@ -14,7 +14,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-//"posts" still infers any type wtf?
+//"posts" still infers "any type "wtf?
 const Home: NextPage = ({
   posts,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
@@ -22,7 +22,7 @@ const Home: NextPage = ({
     <Layout
       title="Home - NewsInABox"
       description="News in a box pioneers in news delivery"
-      keywords="news new trend delivery hot steemy"
+      keywords="news new trend hot steemy sexy ass booty"
     >
       {(values) => <HomePage posts={posts} {...values} />}
     </Layout>
