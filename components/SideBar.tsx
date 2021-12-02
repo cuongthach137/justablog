@@ -57,7 +57,7 @@ const SideBar = ({ isActive, toggleActive }: SideBarType) => {
     " transition-transform p-7 absolute inset-0 bg-white z-20",
     isActive ? "translate-x-0" : "translate-x-[-100%] transition-transform"
   );
-  const { query, pathname } = useRouter();
+  const { query, asPath } = useRouter();
   useEffect(() => {
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && isActive) {
@@ -84,27 +84,29 @@ const SideBar = ({ isActive, toggleActive }: SideBarType) => {
       {menuItems.map((menu) => {
         const isActiveNav =
           query?.sectionId === menu.name.toLowerCase() ||
-          pathname === menu.location;
+          asPath === menu.location;
 
         const goToPage = menu.name === "Home" ? "/" : `${menu.location}`;
 
         return (
-          <Link key={menu.name} href={goToPage}>
-            <div
-              onClick={() => toggleActive(undefined)}
-              className="flex h-10 items-center justify-between mb-6 cursor-pointer"
-            >
-              <div className="flex items-center">
-                <span className="bg-blue-500 rounded-md p-1 text-white w-9 h-9 flex items-center justify-center">
-                  {<menu.icon />}
-                </span>
-                <span className="ml-5">{menu.name}</span>
+          <div key={menu.name}>
+            <Link href={goToPage}>
+              <div
+                onClick={() => toggleActive(undefined)}
+                className="flex h-10 items-center justify-between mb-6 cursor-pointer"
+              >
+                <div className="flex items-center">
+                  <span className="bg-blue-500 rounded-md p-1 text-white w-9 h-9 flex items-center justify-center">
+                    {<menu.icon />}
+                  </span>
+                  <span className="ml-5">{menu.name}</span>
+                </div>
+                {isActiveNav && (
+                  <span className="bg-blue-500 w-2 h-2 rounded-full" />
+                )}
               </div>
-              {isActiveNav && (
-                <span className="bg-blue-500 w-2 h-2 rounded-full" />
-              )}
-            </div>
-          </Link>
+            </Link>
+          </div>
         );
       })}
       {/* Promotional stuff */}

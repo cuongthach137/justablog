@@ -43,7 +43,7 @@ export const getHomePagePosts = async () => {
   const query = gql`
     query MyQuery(
     ) {
-      featured: posts(where: { categories_every: { name: "featured" } } last:8 orderBy: createdAt_ASC) { slug
+      featured: posts(where: { categories_some: { name: "featured" } } last:8 orderBy: createdAt_ASC) { slug
           id
         title
         author {
@@ -56,7 +56,7 @@ export const getHomePagePosts = async () => {
       url
     } createdAt
       }
-      international: posts(where: { categories_every: { name: "international" } }) {        id slug
+      international: posts(where: { categories_some: { name: "international" } }) {        id slug
         title
         author {
           name
@@ -68,7 +68,7 @@ export const getHomePagePosts = async () => {
       url
     }createdAt
       }
-      gaming: posts(where: { categories_every: { name: "gaming" } }) {id slug
+      gaming: posts(where: { categories_some: { name: "gaming" } }) {id slug
         title
         author {
           name
@@ -80,7 +80,7 @@ export const getHomePagePosts = async () => {
       url
     }createdAt
       }
-      business: posts(where: { categories_every: { name: "business" } }) {id slug
+      business: posts(where: { categories_some: { name: "business" } }) {id slug
         title
         author {
           name
@@ -92,7 +92,7 @@ export const getHomePagePosts = async () => {
       url
     }createdAt
       }
-      featuredVideos: posts(where: { categories_every: { name: "featuredVideos"} }) {id slug
+      featuredVideos: posts(where: { categories_some: { name: "featuredVideos"} }) {id slug
         title
         author {
           name

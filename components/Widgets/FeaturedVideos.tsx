@@ -8,8 +8,8 @@ const FeaturedVideos = () => {
       </h3>
       {Array(4)
         .fill("")
-        .map((a) => (
-          <div>
+        .map((a, index) => (
+          <div key={index}>
             <div className="w-full">
               <img
                 className="w-full"

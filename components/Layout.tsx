@@ -29,7 +29,9 @@ const Layout = ({ title, description, keywords, children }: LayoutType) => {
         <header className="flex justify-between items-center p-4">
           <div className="flex gap-2 text-lg  items-center">
             <Link href="/">
-              <RiAncientGateFill className="cursor-pointer text-blue-500" />
+              <div>
+                <RiAncientGateFill className="cursor-pointer text-blue-500" />
+              </div>
             </Link>
             <div onClick={() => toggleValue()} className="font-semibold">
               Good morning,
