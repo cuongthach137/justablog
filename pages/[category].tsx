@@ -46,7 +46,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 const Category: NextPage = ({
   posts,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log(posts);
   return (
     <Layout
       title="Home - NewsInABox"

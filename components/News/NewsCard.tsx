@@ -6,7 +6,7 @@ import moment from "moment";
 type News = {
   posts: Post[];
 };
-const InterNews = ({ posts }: News) => {
+const NewsCard = ({ posts }: News) => {
   return (
     <>
       {posts &&
@@ -17,7 +17,6 @@ const InterNews = ({ posts }: News) => {
           return (
             <div className="flex gap-3 mb-2 border-t-[1px] border-blue-200 pt-1 lg:gap-0 lg:h-32 ">
               <div className="flex-auto cursor-pointer lg:h-full lg:w-[13rem] lg:flex-none">
-                {" "}
                 <Link href={`/article/${post.id}/title/${post.slug}`}>
                   <img
                     className="object-cover lg:h-full lg:w-full "
@@ -57,4 +56,4 @@ const InterNews = ({ posts }: News) => {
   );
 };
 
-export default InterNews;
+export default NewsCard;

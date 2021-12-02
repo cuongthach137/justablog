@@ -1,9 +1,9 @@
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
-import React from "react";
+import React, { useEffect } from "react";
 import ArticlePage from "../../../../components/ArticlePage";
 import Layout from "../../../../components/Layout";
-import { getPost, getPosts } from "../../../../services";
+import { getNextPosts, getPost, getPosts } from "../../../../services";
 import { Post } from "../../../../types";
 
 export const getStaticPaths = async () => {
@@ -29,18 +29,24 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { articleTitle, articleId } = params as Params;
   const post: Post = (await getPost(articleTitle, articleId)) || {};
 
+  const nextPosts = await getNextPosts(
+    post.categories.map((c) => c.slug),
+    post.slug
+  );
   return {
     props: {
       post,
+      nextPosts,
     },
   };
 };
-const article = ({ post }: { post: Post }) => {
+const article = ({ post, nextPosts }: { post: Post; nextPosts: [] }) => {
+  console.log(nextPosts);
   return (
     <Layout>
       {() => (
         <>
-          <ArticlePage post={post} />
+          <ArticlePage post={post} nextPosts={nextPosts} />
         </>
       )}
     </Layout>

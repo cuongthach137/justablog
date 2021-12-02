@@ -56,14 +56,14 @@ const InterNews = ({ posts }: NewsProps) => {
               return (
                 <div className="hidden lg:flex gap-5 items-center justify-center w-full m-12">
                   <div className="text-right text-2xl flex-1">
-                    <div className="hover:text-white cursor-pointer">
+                    <div className="text-white hover:text-blue-100 cursor-pointer">
                       <Link href={`/article/${post.id}/title/${post.slug}`}>
                         {post.title}
                       </Link>
                     </div>
-                    <div className="uppercase">
+                    <div className="uppercase text-white hover:text-blue-100">
                       BY{" "}
-                      <span className="hover:text-white cursor-pointer">
+                      <span className=" cursor-pointer">
                         <Link href={`/author/${post.author.name}`}>
                           {post.author.name}
                         </Link>
@@ -71,7 +71,7 @@ const InterNews = ({ posts }: NewsProps) => {
                     </div>
                   </div>
                   <div className="text-5xl flex-1">
-                    <i className="cursor-pointer hover:text-white">
+                    <i className="cursor-pointer text-white hover:text-blue-100">
                       <Link href={`/article/${post.id}/title/${post.slug}`}>
                         {post.excerpt}
                       </Link>

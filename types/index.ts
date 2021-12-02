@@ -3,6 +3,7 @@ export type Post = {
   title: string;
   author: {
     name: string;
+    id: string;
   };
   comments: [];
   excerpt: string;
@@ -17,6 +18,12 @@ export type Post = {
       name: string;
     }
   ];
+  content: {
+    text: string;
+    raw: {
+      children: [];
+    };
+  };
 };
 export type Categories = {
   featured: [];
@@ -24,4 +31,9 @@ export type Categories = {
   business: [];
   gaming: [];
   featuredVideos: [];
+};
+
+export type Category = {
+  slug: string;
+  name: string;
 };

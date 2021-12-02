@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.firstLetter p::first-letter {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 5.2em;
+  color: #e2127a;
+  float: left;
+  line-height: 1;
+  margin: 0 0.1em 0 0;
+  position: relative;
+  text-indent: 0;
+  margin-right: 1rem;
+}
+.firstLetter p {
+  line-height: 1.6;
+  color: rgb(87, 87, 87);
+  font-weight: 600;
+}
+
+.floatLeft > *:first-child {
+  float: left;
+  margin-left: 0 !important;
+  margin-right: 1.2rem;
+}
+.noFloat > *:first-child {
+  float: none;
+  max-width: none;
+  margin-left: 0 !important;
+}

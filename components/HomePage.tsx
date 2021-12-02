@@ -1,8 +1,8 @@
 import React from "react";
-import InterNews from "./News/InternationalNews";
+import NewsCard from "./News/NewsCard";
 import StyledNews from "./News/StyledNews";
 import FeaturedNews from "./News/FeaturedNews";
-import FeaturedVideos from "./Widgets/FeaturedVideos";
+import RightSideContent from "./Widgets/RightSideContent";
 import { Categories } from "../types";
 
 const Main = ({ posts }: { posts: Categories }) => {
@@ -14,15 +14,15 @@ const Main = ({ posts }: { posts: Categories }) => {
       <div className="lg:flex lg:gap-5 lg:px-32">
         <div>
           {" "}
-          <InterNews posts={posts.international} />
+          <NewsCard posts={posts.international} />
           {/* Featured article */}
           {/* random news? */}
           <StyledNews />
         </div>
-        <aside className="hidden lg:block p-3">
-          <FeaturedVideos />
-          <FeaturedVideos />
-        </aside>
+        <div className="hidden ">
+          <RightSideContent title="featured videos" category="videos" />
+          <RightSideContent title="reviews" category="reviews" />
+        </div>
       </div>
     </div>
   );
