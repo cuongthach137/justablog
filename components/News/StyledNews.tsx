@@ -25,6 +25,7 @@ const StyledNews = () => {
           <div className="absolute after:block after:w-48 after:bg-white after:h-[2px] right-[-6px] bottom-[10px] " />
         </div>
         <img
+          className="w-full"
           src="https://cdn.vox-cdn.com/thumbor/BKu5K5bBzfG7pDASQnsRm_FaIdw=/0x127:2040x1275/560x315/filters:format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/70192418/shollister_toaster_20211123.0.jpg"
           alt=""
         />

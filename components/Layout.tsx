@@ -52,5 +52,9 @@ const Layout = ({ title, description, keywords, children }: LayoutType) => {
     </>
   );
 };
-
+Layout.defaultProps = {
+  title: "haha",
+  description: "lmao",
+  keywords: "hahas s s",
+};
 export default Layout;

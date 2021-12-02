@@ -11,9 +11,10 @@ const InterNews = ({ posts }: News) => {
     <>
       {posts &&
         posts.length > 0 &&
-        posts.map((post: Post, index) => (
-          <>
-            {index === 4 && <RandomNews post={post} />}
+        posts.map((post: Post, index) => {
+          if (index === posts.length - 2) return <RandomNews post={post} />;
+
+          return (
             <div className="flex gap-3 mb-2 border-t-[1px] border-blue-200 pt-1 lg:gap-0 lg:h-32 ">
               <div className="flex-auto cursor-pointer lg:h-full lg:w-[13rem] lg:flex-none">
                 {" "}
@@ -50,8 +51,8 @@ const InterNews = ({ posts }: News) => {
                 </div>
               </div>
             </div>
-          </>
-        ))}
+          );
+        })}
     </>
   );
 };

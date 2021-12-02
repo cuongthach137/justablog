@@ -11,6 +11,12 @@ export type Post = {
   };
   slug: string;
   createdAt: Date;
+  categories: [
+    {
+      slug: string;
+      name: string;
+    }
+  ];
 };
 export type Categories = {
   featured: [];

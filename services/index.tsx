@@ -110,3 +110,44 @@ export const getHomePagePosts = async () => {
 
   return result;
 };
+
+export const getPost = async (title: string, id: string) => {
+  const query = gql`
+    query MyQuery($id: ID, $title: String) {
+      post(where: { slug: $title, id: $id }) {
+        slug
+        title
+        excerpt
+        categories {
+          slug
+          name
+        }
+        author {
+          name
+        }
+        comments {
+          id
+        }
+        featuredImage {
+          url
+        }
+      }
+    }
+  `;
+  const result = await request(graphqlAPI, query, { title, id });
+  return result.post;
+};
+
+export const getPosts = async () => {
+  const query = gql`
+    query MyQuery() {
+      posts {
+        slug
+        title
+       id
+      }
+    }
+  `;
+  const result = await request(graphqlAPI, query);
+  return result.posts;
+};

@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { joinClx } from "../../utils/joinClassName";
 import { Post } from "../../types";
+import trimText from "../../utils/trimText";
 
 type NewsProps = {
   posts: Post[];
@@ -83,12 +84,14 @@ const InterNews = ({ posts }: NewsProps) => {
               <div className={outerMost}>
                 <div className={inner}>
                   <div className={innerMostImg}>
-                    <img className={img} src={post.featuredImage.url} alt="" />
+                    <img className={img} src={post.featuredImage?.url} alt="" />
                   </div>
                   <div className={innerMostText}>
                     <div className="text-xs lg:hidden ">Daily bites</div>
                     <Link href={`/article/${post.id}/title/${post.slug}`}>
-                      <span className={titleClx}>{post.title}</span>
+                      <span className={titleClx}>
+                        {trimText(post.title, 80)}
+                      </span>
                     </Link>
                     <div className={creditClx}>
                       <span className="font-semibold">By </span>
