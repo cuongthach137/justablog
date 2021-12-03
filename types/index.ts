@@ -38,6 +38,7 @@ export type Categories = {
   business: [];
   entertainment: [];
   featuredVideos: [];
+  tech: [];
 };
 
 export type Category = {
