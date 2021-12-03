@@ -20,7 +20,7 @@ const ArticlePage = ({ post, nextPosts }: { post: Post; nextPosts: [] }) => {
             <Link href={`/${c.slug}`}>
               <div className="absolute top-0 left-0 border-r border-t border-solid border-blue-500 w-full h-full skew-x-[20deg] select-none z-0" />
             </Link>
-            <div className="text-blue-500">{capitalize(c.name)}</div>
+            <div className="text-blue-500 px-4">{capitalize(c.name)}</div>
           </div>
         ))}
       </div>
