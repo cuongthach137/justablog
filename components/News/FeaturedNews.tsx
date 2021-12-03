@@ -8,7 +8,7 @@ type NewsProps = {
   posts: Post[];
 };
 
-const InterNews = ({ posts }: NewsProps) => {
+const FeaturedNews = ({ posts }: NewsProps) => {
   return (
     <div className="p-4 mb-10">
       <div className="mb-4 w-full bg-gradient-to-r from-blue-700 to-blue-300 p-[2px] lg:flex lg:flex-wrap lg:p-[2px]">
@@ -55,7 +55,10 @@ const InterNews = ({ posts }: NewsProps) => {
             );
             if (index === posts.length - 1) {
               return (
-                <div className="hidden lg:flex gap-5 items-center justify-center w-full m-12 ">
+                <div
+                  key={post.id}
+                  className="hidden lg:flex gap-5 items-center justify-center w-full m-12 "
+                >
                   <div className="text-right text-2xl flex-1 ">
                     <div className="text-white hover:text-blue-100 cursor-pointer">
                       <Link href={`/article/${post.id}/title/${post.slug}`}>
@@ -82,7 +85,7 @@ const InterNews = ({ posts }: NewsProps) => {
               );
             }
             return (
-              <div className={outerMost}>
+              <div key={post.id} className={outerMost}>
                 <div className={inner}>
                   <div className={innerMostImg}>
                     <Link href={`/article/${post.id}/title/${post.slug}`}>
@@ -132,4 +135,4 @@ const InterNews = ({ posts }: NewsProps) => {
   );
 };
 
-export default InterNews;
+export default FeaturedNews;

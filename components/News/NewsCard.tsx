@@ -14,11 +14,22 @@ const NewsCard = ({ posts }: News) => {
         posts.length > 0 &&
         posts.map((post: Post, index) => {
           if (posts.length > 4 && index === posts.length - 3)
-            return <RandomNews post={post} />;
+            return (
+              <div key={post.id}>
+                <RandomNews post={post} />
+              </div>
+            );
           if (posts.length > 2 && index === posts.length - 1)
-            return <StyledNews post={post} />;
+            return (
+              <div key={post.id}>
+                <StyledNews post={post} />
+              </div>
+            );
           return (
-            <div className="flex gap-3 mb-2 border-t-[1px] border-blue-200 pt-1 lg:gap-0 lg:h-32 ">
+            <div
+              key={post.id}
+              className="flex gap-3 mb-2 border-t-[1px] border-blue-200 pt-1 lg:gap-0 lg:h-32 "
+            >
               <div className="flex-auto cursor-pointer max-h-[7.5rem] lg:w-[13rem] lg:flex-none">
                 <Link href={`/article/${post.id}/title/${post.slug}`}>
                   <img

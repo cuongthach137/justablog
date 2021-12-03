@@ -13,8 +13,6 @@ const CommentForm = ({ postSlug }: { postSlug: string }) => {
     e.preventDefault();
     if (comment.current && info.email && info.name) {
       const commentToSubmit = {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         comment: comment.current.innerText,
         email: info.email,
         name: info.name,
@@ -23,7 +21,7 @@ const CommentForm = ({ postSlug }: { postSlug: string }) => {
       setSubmitState("pending");
 
       try {
-        const result = await submitComment(commentToSubmit);
+        await submitComment(commentToSubmit);
         setSubmitState("success");
       } catch (error) {
         setSubmitState("failed");

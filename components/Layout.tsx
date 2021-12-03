@@ -28,31 +28,18 @@ const Layout = ({ title, description, keywords, children }: LayoutType) => {
       if (!navRef.current) return;
       if (!arrowUpRef.current) return;
       if (window.scrollY > innerHeight) {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         arrowUpRef.current.classList.remove("hidden");
       } else {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         arrowUpRef.current.classList.add("hidden");
       }
 
       if (latestPos < lastPos) {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        navRef.current.style.position = "sticky"; // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
+        navRef.current.style.position = "sticky";
+        navRef.current.style.top = "0";
 
-        navRef.current.style.top = "0"; // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-
-        navRef.current.style.transform = "translateY(0rem)"; // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
+        navRef.current.style.transform = "translateY(0rem)";
       } else {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        navRef.current.style.position = "static"; // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
+        navRef.current.style.position = "static";
       }
       lastPos = latestPos;
     });
@@ -61,11 +48,7 @@ const Layout = ({ title, description, keywords, children }: LayoutType) => {
 
   function scrollToView() {
     if (!navRef.current) return;
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     navRef.current.style.position = "static";
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     navRef?.current.scrollIntoView({ behavior: "smooth" });
   }
 
