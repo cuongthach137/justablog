@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Layout from "../components/Layout";
 import Link from "next/link";
-import Image from "next/image";
 const NotFoundPage = () => {
   const [counter, setCounter] = useState(10);
   const router = useRouter();
@@ -42,7 +41,7 @@ const NotFoundPage = () => {
               </div>
               <div>
                 Or Thor{" "}
-                <Image
+                <img
                   className="inline-block"
                   src="https://img.icons8.com/office/16/000000/thor.png"
                   alt=""

@@ -1,12 +1,19 @@
-import type { NextPage, GetStaticProps, InferGetStaticPropsType } from "next";
+import type { NextPage, GetServerSideProps } from "next";
 import Layout from "../components/Layout";
 import HomePage from "../components/HomePage";
 import { getHomePagePosts } from "../services";
 import { Categories } from "../types";
 
-export const getStaticProps: GetStaticProps = async () => {
-  const posts: Categories = (await getHomePagePosts()) || {};
-
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const posts: Categories = await getHomePagePosts();
+  if (!posts) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
   return {
     props: {
       posts,
@@ -15,9 +22,7 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 //"posts" still infers "any type "wtf?
-const Home: NextPage = ({
-  posts,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Home: NextPage = ({ posts }: any) => {
   return (
     <Layout
       title="Home - NewsInABox"

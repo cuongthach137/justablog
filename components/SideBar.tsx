@@ -74,6 +74,9 @@ const SideBar = ({ isActive, toggleActive }: SideBarType) => {
       <div className="mb-8 ">
         <div>
           <Image
+            layout="responsive"
+            width="100%"
+            height="100%"
             className="rounded-full w-14 h-14 object-cover mb-2"
             src="https://scontent.fhan14-1.fna.fbcdn.net/v/t31.18172-8/24883656_138190423624150_8382249765869204198_o.jpg?_nc_cat=107&ccb=1-5&_nc_sid=cdbe9c&_nc_ohc=vkg3oGbAzXMAX9asSHG&_nc_oc=AQkD5IM-gcAuuDll6XU7AfEAyaaVPE6Nm2EPntKkErrrZCbxalZeobZaNmgqIvEIpffqAPUaNjhqFfTV_bMBjikY&_nc_ht=scontent.fhan14-1.fna&oh=710d2511fe83fc7bde3712f32c62ecad&oe=61CBE0BC"
             alt=""
