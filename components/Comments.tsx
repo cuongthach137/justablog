@@ -13,7 +13,6 @@ const Comments = ({ comments }: { comments: Comment[] }) => {
           ? "There is one comment"
           : "There are " + comments.length + " comments"}
       </h2>
-      {console.log(comments)}
       <div className="border-solid border-blue-200 border-[1px]">
         {comments.length > 0 &&
           comments.map((comment, index) => {

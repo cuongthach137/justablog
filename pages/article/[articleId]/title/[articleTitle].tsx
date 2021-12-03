@@ -41,7 +41,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 const article = ({ post, nextPosts }: { post: Post; nextPosts: [] }) => {
-  console.log(nextPosts);
   return (
     <Layout>
       {() => (

@@ -31,7 +31,7 @@ const ArticlePage = ({ post, nextPosts }: { post: Post; nextPosts: [] }) => {
         <div className="text-sm lg:text-lg">
           By{" "}
           <span className="text-blue-500 cursor-pointer">
-            {post.author.name}
+            <Link href={`/author/${post.author.name}`}>{post.author.name}</Link>
           </span>
           {" | "}
           <span className="text-gray-500">
@@ -131,7 +131,6 @@ const ArticlePage = ({ post, nextPosts }: { post: Post; nextPosts: [] }) => {
             </div>
           )}
           <div>
-            {console.log(post.comments)}
             <Comments comments={post.comments} />
             <CommentForm postSlug={post.slug} />
           </div>

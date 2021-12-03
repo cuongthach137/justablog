@@ -13,7 +13,6 @@ const RightSide = ({
   category = "Category",
   posts,
 }: PropTypes) => {
-  console.log(posts);
   return (
     <aside>
       <h3 className="relative text-center mb-3 text-2xl ">

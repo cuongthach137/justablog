@@ -25,7 +25,7 @@ const InterNews = ({ posts }: NewsProps) => {
             );
 
             const inner = joinClx(
-              "flex items-center gap-2 lg:gap-0 p-2 bg-white lg:p-0 lg:w-full lg:h-full bg-black ",
+              "flex items-center gap-2 lg:gap-0 p-2 bg-black lg:p-0 lg:w-full lg:h-full ",
               half ? "lg:h-full" : "lg:block"
             );
 
