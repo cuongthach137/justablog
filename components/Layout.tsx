@@ -18,8 +18,8 @@ type LayoutType = {
 
 const Layout = ({ title, description, keywords, children }: LayoutType) => {
   const [value, toggleValue] = useToggle(false);
-  const navRef = useRef();
-  const arrowUpRef = useRef();
+  const navRef = useRef() as React.MutableRefObject<HTMLInputElement>;
+  const arrowUpRef = useRef() as React.MutableRefObject<HTMLInputElement>;
   useEffect(() => {
     let lastPos = window.scrollY;
     //all i see is red
