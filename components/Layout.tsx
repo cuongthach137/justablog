@@ -5,6 +5,7 @@ import SideBar from "./SideBar";
 import WeatherWidget from "./WeatherWidget";
 import { RiAncientGateFill } from "react-icons/ri";
 import { AiOutlineSearch } from "react-icons/ai";
+import { BsGithub } from "react-icons/bs";
 import Link from "next/link";
 
 type LayoutType = {
@@ -47,14 +48,18 @@ const Layout = ({ title, description, keywords, children }: LayoutType) => {
         <WeatherWidget />
         {!value && children({ toggleValue, value })}
         <SideBar toggleActive={toggleValue} isActive={value} />
-        <footer className="bg-blue-700 mt-10 flex justify-center text-white py-5">
-          <p>
+        <footer className="bg-blue-700 mt-10 lg:text-center text-white py-5 text-xs lg:text-base">
+          <p className=" px-4 mb-3">
             Most of the articles on this website are straight copies from The
             Verge. The name of the author for each article is fictional and does
             not associate with any particlar individual. The whole website is
             built for educational purposes only
           </p>
-          <div></div>
+          <div className="flex justify-center cursor-pointer">
+            <Link href="https://github.com/cuongthach137">
+              <BsGithub />
+            </Link>
+          </div>
         </footer>
       </div>
     </>

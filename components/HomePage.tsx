@@ -19,7 +19,7 @@ const Main = ({ posts }: { posts: Categories }) => {
           {/* random news? */}
           <StyledNews />
         </div>
-        <div className=" ">
+        <div className=" hidden lg:block">
           <RightSideContent title="featured videos" category="videos" />
           <RightSideContent title="reviews" category="reviews" />
         </div>
