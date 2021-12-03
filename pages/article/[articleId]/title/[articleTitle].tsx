@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 const article = ({ post, nextPosts }: { post: Post; nextPosts: [] }) => {
   return (
-    <Layout>
+    <Layout title={post.title} description={post.excerpt}>
       {() => (
         <>
           <ArticlePage post={post} nextPosts={nextPosts} />
