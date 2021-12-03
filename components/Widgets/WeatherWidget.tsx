@@ -1,12 +1,12 @@
 import React from "react";
-import useToggle from "../hooks/useToggle";
-import { joinClx } from "../utils/joinClassName";
+import useToggle from "../../hooks/useToggle";
+import { joinClx } from "../../utils/joinClassName";
 import { WiDayCloudy } from "react-icons/wi";
 
 const WeatherWidget = () => {
-  const [value, toggleValue] = useToggle(true);
+  const [value, toggleValue] = useToggle(false);
   const wdg = joinClx(
-    "p-4",
+    "p-4 mb-5 lg:hidden",
     value
       ? "w-full  shadow-xl mb-5 relative"
       : "flex justify-between h-8 w-full"

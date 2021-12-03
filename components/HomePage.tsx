@@ -1,27 +1,27 @@
 import React from "react";
 import NewsCard from "./News/NewsCard";
-import StyledNews from "./News/StyledNews";
 import FeaturedNews from "./News/FeaturedNews";
 import RightSideContent from "./Widgets/RightSideContent";
 import { Categories } from "../types";
 
 const Main = ({ posts }: { posts: Categories }) => {
   return (
-    <div className="container lg:mx-auto lg:px-24">
-      {/* internaltion news */}
-      <FeaturedNews posts={posts.featured} />
-      {/* random news? */}
-      <div className="lg:flex lg:gap-5 lg:px-32">
+    <div className="">
+      <div className="bg-black lg:px-60">
+        <FeaturedNews posts={posts.featured} />
+      </div>
+      <div className="lg:flex lg:gap-5 lg:px-32 container lg:mx-auto">
         <div>
-          {" "}
           <NewsCard posts={posts.international} />
-          {/* Featured article */}
-          {/* random news? */}
-          <StyledNews />
+          <NewsCard posts={posts.entertainment} />
+          <NewsCard posts={posts.business} />
         </div>
         <div className=" hidden lg:block">
-          <RightSideContent title="featured videos" category="videos" />
-          <RightSideContent title="reviews" category="reviews" />
+          <RightSideContent
+            posts={posts.featuredVideos}
+            title="featured videos"
+            category="featured-video"
+          />
         </div>
       </div>
     </div>

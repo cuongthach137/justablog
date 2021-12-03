@@ -10,26 +10,27 @@ type NewsProps = {
 
 const InterNews = ({ posts }: NewsProps) => {
   return (
-    <div className="p-4">
-      <div className="mb-4 w-full bg-gradient-to-r from-blue-500 to-blue-200 p-[3px] lg:flex lg:flex-wrap lg:p-[2px]">
+    <div className="p-4 mb-10">
+      <div className="mb-4 w-full bg-gradient-to-r from-blue-700 to-blue-300 p-[2px] lg:flex lg:flex-wrap lg:p-[2px]">
         {/* daily bites */}
         {posts &&
           posts.length > 0 &&
           posts.map((post: Post, index) => {
             const half = index === 0 || index === 3;
             const outerMost = joinClx(
-              "w-full lg:p-[2px] lg:h-80 lg:relative",
+              "w-full lg:p-[2px] lg:h-80 lg:relative border-blue-200 lg:border-none ",
               half ? "lg:w-2/3" : "lg:w-1/3 ",
-              index === 7 ? "lg:hidden" : ""
+              index === 7 ? "lg:hidden" : "",
+              index === posts.length - 2 ? "" : "border-b-[1px]"
             );
 
             const inner = joinClx(
-              "flex gap-2 lg:gap-0 p-2 bg-white lg:p-0 lg:w-full lg:h-full",
+              "flex items-center gap-2 lg:gap-0 p-2 bg-white lg:p-0 lg:w-full lg:h-full bg-black ",
               half ? "lg:h-full" : "lg:block"
             );
 
             const innerMostText = joinClx(
-              "flex-none  lg:p-4",
+              "flex-none  lg:p-4 ",
               index !== 0 ? "w-2/3 " : "w-[10rem] ",
               half ? "lg:w-1/2 lg:h-full" : "lg:w-full "
             );
@@ -44,7 +45,7 @@ const InterNews = ({ posts }: NewsProps) => {
             );
 
             const titleClx = joinClx(
-              "text-lg leading-3  font-semibold max-w-[9rem] cursor-pointer lg:w-full",
+              "text-lg leading-3  font-semibold max-w-[9rem] cursor-pointer lg:w-full text-white hover:text-blue-500",
               half ? "lg:text-5xl" : "lg:text-xl"
             );
 
@@ -54,8 +55,8 @@ const InterNews = ({ posts }: NewsProps) => {
             );
             if (index === posts.length - 1) {
               return (
-                <div className="hidden lg:flex gap-5 items-center justify-center w-full m-12">
-                  <div className="text-right text-2xl flex-1">
+                <div className="hidden lg:flex gap-5 items-center justify-center w-full m-12 ">
+                  <div className="text-right text-2xl flex-1 ">
                     <div className="text-white hover:text-blue-100 cursor-pointer">
                       <Link href={`/article/${post.id}/title/${post.slug}`}>
                         {post.title}
@@ -70,8 +71,8 @@ const InterNews = ({ posts }: NewsProps) => {
                       </span>
                     </div>
                   </div>
-                  <div className="text-5xl flex-1">
-                    <i className="cursor-pointer text-white hover:text-blue-100">
+                  <div className="text-5xl flex-1 ">
+                    <i className="cursor-pointer text-white hover:text-blue-100 ">
                       <Link href={`/article/${post.id}/title/${post.slug}`}>
                         {post.excerpt}
                       </Link>
@@ -88,19 +89,21 @@ const InterNews = ({ posts }: NewsProps) => {
                       <img
                         className={img}
                         src={post.featuredImage?.url}
-                        alt=""
+                        alt={post.title}
                       />
                     </Link>
                   </div>
                   <div className={innerMostText}>
-                    <div className="text-xs lg:hidden ">Daily bites</div>
+                    <div className="text-xs lg:hidden text-white">
+                      Daily bites
+                    </div>
                     <Link href={`/article/${post.id}/title/${post.slug}`}>
                       <span className={titleClx}>
                         {trimText(post.title, 80)}
                       </span>
                     </Link>
                     <div className={creditClx}>
-                      <span className="font-semibold">By </span>
+                      <span className="font-semibold text-blue-500">By </span>
                       <Link href={`/author/${post.author.name}`}>
                         <span className="text-blue-500 cursor-pointer">
                           {post.author.name}

@@ -36,11 +36,17 @@ export type Categories = {
   featured: [];
   international: [];
   business: [];
-  gaming: [];
+  entertainment: [];
   featuredVideos: [];
 };
 
 export type Category = {
   slug: string;
   name: string;
+};
+export type Author = {
+  id: string;
+  name: string;
+  bio: string;
+  photo: string;
 };

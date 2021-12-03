@@ -27,7 +27,10 @@ export const getCategories = async () => {
 export const getPostsByCategory = async (slug: string) => {
   const query = gql`
     query MyQuery($slug: String) {
-      posts(where: { categories_every: { slug: $slug } }) {
+      posts(
+        where: { categories_some: { slug: $slug } }
+        orderBy: createdAt_DESC
+      ) {
         id
         slug
         title
@@ -53,7 +56,7 @@ export const getHomePagePosts = async () => {
   const query = gql`
     query MyQuery(
     ) {
-      featured: posts(where: { categories_some: { name: "featured" } } last:8 orderBy: createdAt_ASC) { slug
+      featured: posts(where: { categories_some: { slug: "featured" } } last:8 orderBy: createdAt_DESC) { slug
           id
         title
         author {
@@ -66,7 +69,7 @@ export const getHomePagePosts = async () => {
       url
     } createdAt
       }
-      international: posts(where: { categories_some: { name: "international" } }) {        id slug
+      international: posts(where: { categories_some: { slug: "international" } }) {        id slug
         title
         author {
           name id
@@ -78,7 +81,7 @@ export const getHomePagePosts = async () => {
       url
     }createdAt
       }
-      gaming: posts(where: { categories_some: { name: "gaming" } }) {id slug
+      entertainment: posts(where: { categories_some: { slug: "entertainment" } }) {id slug
         title
         author {
           name id
@@ -90,7 +93,7 @@ export const getHomePagePosts = async () => {
       url
     }createdAt
       }
-      business: posts(where: { categories_some: { name: "business" } }) {id slug
+      business: posts(where: { categories_some: { slug: "business" } }) {id slug
         title
         author {
           name id
@@ -102,7 +105,8 @@ export const getHomePagePosts = async () => {
       url
     }createdAt
       }
-      featuredVideos: posts(where: { categories_some: { name: "featuredVideos"} }) {id slug
+      featuredVideos: posts(where: { categories_some: { slug: "featured-video"} }) {
+        id slug
         title
         author {
           name id
@@ -173,17 +177,14 @@ export const getPosts = async () => {
   return result.posts;
 };
 
-export const getPostsByAuthor = async (authorId: string) => {
+export const getPostsByAuthor = async (authorName: string) => {
   const query = gql`
-    query MyQuery($authorId: ID) {
-      posts(where: { author: { id: $authorId } }) {
+    query MyQuery($authorName: String) {
+      posts(where: { author: { name: $authorName } }) {
+        id
         slug
         title
         excerpt
-        categories {
-          slug
-          name
-        }
         author {
           name
           id
@@ -197,8 +198,36 @@ export const getPostsByAuthor = async (authorId: string) => {
       }
     }
   `;
-  const result = await client.request(query, { authorId });
+  const result = await client.request(query, { authorName });
   return result.posts;
+};
+export const getAuthors = async () => {
+  const query = gql`
+    query MyQuery {
+      authors {
+        name
+        id
+      }
+    }
+  `;
+  const result = await client.request(query);
+  return result.authors;
+};
+export const getAuthor = async (authorName: string) => {
+  const query = gql`
+    query MyQuery($authorName: String) {
+      author(where: { name: $authorName }) {
+        name
+        id
+        bio
+        photo {
+          url
+        }
+      }
+    }
+  `;
+  const result = await client.request(query, { authorName });
+  return result.author;
 };
 
 export const getNextPosts = async (categories: string[], slug: string) => {
@@ -206,6 +235,8 @@ export const getNextPosts = async (categories: string[], slug: string) => {
     query MyQuery($categories: [String!], $slug: String!) {
       posts(
         where: { slug_not: $slug, categories_some: { slug_in: $categories } }
+        last: 4
+        orderBy: createdAt_ASC
       ) {
         id
         slug

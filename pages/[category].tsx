@@ -23,7 +23,7 @@ export const getStaticPaths = async () => {
   }));
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
 };
 
@@ -38,6 +38,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       posts,
+      category,
     },
   };
 };
@@ -45,6 +46,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 //"posts" still infers "any type "wtf?
 const Category: NextPage = ({
   posts,
+  category,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <Layout
@@ -52,7 +54,7 @@ const Category: NextPage = ({
       description="News in a box pioneers in news delivery"
       keywords="news new trend hot steemy sexy ass booty"
     >
-      {() => <CategoryPage posts={posts} />}
+      {() => <CategoryPage category={category} posts={posts} />}
     </Layout>
   );
 };

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Post } from "../../types";
 import RandomNews from "./RandomNews";
 import moment from "moment";
+import StyledNews from "./StyledNews";
 type News = {
   posts: Post[];
 };
@@ -12,14 +13,16 @@ const NewsCard = ({ posts }: News) => {
       {posts &&
         posts.length > 0 &&
         posts.map((post: Post, index) => {
-          if (index === posts.length - 2) return <RandomNews post={post} />;
-
+          if (posts.length > 4 && index === posts.length - 3)
+            return <RandomNews post={post} />;
+          if (posts.length > 2 && index === posts.length - 1)
+            return <StyledNews post={post} />;
           return (
             <div className="flex gap-3 mb-2 border-t-[1px] border-blue-200 pt-1 lg:gap-0 lg:h-32 ">
-              <div className="flex-auto cursor-pointer lg:h-full lg:w-[13rem] lg:flex-none">
+              <div className="flex-auto cursor-pointer max-h-[7.5rem] lg:w-[13rem] lg:flex-none">
                 <Link href={`/article/${post.id}/title/${post.slug}`}>
                   <img
-                    className="object-cover lg:h-full lg:w-full "
+                    className="object-cover h-full w-full "
                     src={post.featuredImage.url}
                     alt={post.title}
                   />

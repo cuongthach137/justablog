@@ -11,11 +11,14 @@ import CommentForm from "./CommentForm";
 const ArticlePage = ({ post, nextPosts }: { post: Post; nextPosts: [] }) => {
   return (
     <div className="container mx-auto px-4 lg:px-60">
-      <div>
+      <div className="flex gap-1 mb-5">
         {post.categories.map((c) => (
-          <span className="text-blue-500 cursor-pointer">
-            <Link href={`/${c.slug}`}>{capitalize(c.name)}</Link>
-          </span>
+          <div className="inline-block relative pr-2 pt-2 cursor-pointer">
+            <Link href={`/${c.slug}`}>
+              <div className="absolute top-0 left-0 border-r border-t border-solid border-blue-500 w-full h-full skew-x-[20deg] select-none z-0" />
+            </Link>
+            <div className="text-blue-500">{capitalize(c.name)}</div>
+          </div>
         ))}
       </div>
       <div className="mb-5">
@@ -45,7 +48,7 @@ const ArticlePage = ({ post, nextPosts }: { post: Post; nextPosts: [] }) => {
               alt={post.title}
             />
           </div>
-          <div className="text-gray-700">
+          <div className="text-gray-700 mb-20">
             <RichText
               content={post.content.raw.children}
               renderers={{
@@ -104,24 +107,29 @@ const ArticlePage = ({ post, nextPosts }: { post: Post; nextPosts: [] }) => {
               }}
             />
           </div>
-          <div className="mb-20">
-            <h2 className="inline-block relative text-3xl mb-3 mt-10 before:absolute before:bg-transparent before:border-r-2 before:border-t-2 before:border-solid before:border-blue-500 before-w-full before:z-0 z-10 py-[12px] pr-4 ">
-              Up Next
-            </h2>
-            {nextPosts.map((post: Post) => {
-              return (
-                <>
-                  <ol>
-                    <li className="mb-1 text-blue-500 hover:text-blue-800">
-                      <Link href={`/article/${post.id}/title/${post.slug}`}>
-                        {post.title}
-                      </Link>
-                    </li>
-                  </ol>
-                </>
-              );
-            })}
-          </div>
+          {nextPosts.length > 0 && (
+            <div className="mb-20">
+              <div className="relative mt-10 mb-3 inline-block ">
+                <h2 className="text-2xl lg:text-3xl z-10 pt-[12px] pr-4">
+                  Up Next
+                </h2>
+                <div className="absolute w-full h-full top-0 border-indigo-500 border-t-2 border-r-2 skew-x-[20deg]"></div>
+              </div>
+              {nextPosts.map((post: Post) => {
+                return (
+                  <>
+                    <ol>
+                      <li className="mb-3 text-blue-500 hover:text-blue-800">
+                        <Link href={`/article/${post.id}/title/${post.slug}`}>
+                          {post.title}
+                        </Link>
+                      </li>
+                    </ol>
+                  </>
+                );
+              })}
+            </div>
+          )}
           <div>
             {console.log(post.comments)}
             <Comments comments={post.comments} />
@@ -129,13 +137,15 @@ const ArticlePage = ({ post, nextPosts }: { post: Post; nextPosts: [] }) => {
           </div>
         </div>
 
-        <div className="hidden lg:block">
-          <RightSideContent
-            title="up next"
-            category={post.categories[0]?.name}
-            posts={nextPosts}
-          />
-        </div>
+        {nextPosts.length > 0 && (
+          <div className="hidden lg:block">
+            <RightSideContent
+              title="up next"
+              category={post.categories[0]?.name}
+              posts={nextPosts}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
