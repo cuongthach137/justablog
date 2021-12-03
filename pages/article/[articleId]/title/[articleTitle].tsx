@@ -38,6 +38,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       post,
       nextPosts,
     },
+    revalidate: 60,
   };
 };
 const article = ({ post, nextPosts }: { post: Post; nextPosts: [] }) => {
