@@ -21,7 +21,7 @@ const Comments = ({ comments }: { comments: Comment[] }) => {
               index !== comments.length - 1 ? "border-b-[1px]" : ""
             );
             return (
-              <div className={commentBoxClx}>
+              <div key={comment.comment} className={commentBoxClx}>
                 <div className="font-semibold text-lg text-blue-500 mb-2">
                   {comment.name.toUpperCase()} - {comment.email} -{" "}
                   {moment(comment.createdAt).calendar()}

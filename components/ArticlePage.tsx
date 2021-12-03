@@ -13,7 +13,10 @@ const ArticlePage = ({ post, nextPosts }: { post: Post; nextPosts: [] }) => {
     <div className="container mx-auto px-4 lg:px-60">
       <div className="flex gap-1 mb-5">
         {post.categories.map((c) => (
-          <div className="inline-block relative pr-2 pt-2 cursor-pointer">
+          <div
+            key={c.slug}
+            className="inline-block relative pr-2 pt-2 cursor-pointer"
+          >
             <Link href={`/${c.slug}`}>
               <div className="absolute top-0 left-0 border-r border-t border-solid border-blue-500 w-full h-full skew-x-[20deg] select-none z-0" />
             </Link>
@@ -117,15 +120,13 @@ const ArticlePage = ({ post, nextPosts }: { post: Post; nextPosts: [] }) => {
               </div>
               {nextPosts.map((post: Post) => {
                 return (
-                  <>
-                    <ol>
-                      <li className="mb-3 text-blue-500 hover:text-blue-800">
-                        <Link href={`/article/${post.id}/title/${post.slug}`}>
-                          {post.title}
-                        </Link>
-                      </li>
-                    </ol>
-                  </>
+                  <ol key={post.id}>
+                    <li className="mb-3 text-blue-500 hover:text-blue-800">
+                      <Link href={`/article/${post.id}/title/${post.slug}`}>
+                        {post.title}
+                      </Link>
+                    </li>
+                  </ol>
                 );
               })}
             </div>
