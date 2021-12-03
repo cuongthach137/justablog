@@ -118,6 +118,19 @@ export const getHomePagePosts = async () => {
       url
     }createdAt
       }
+      tech: posts(where: { categories_some: { slug: "tech"} }) {
+        id slug
+        title
+        author {
+          name id
+        }
+        excerpt
+        comments {
+          id
+        }featuredImage {
+      url
+    }createdAt
+      }
     }
   `;
   const result = await client.request(query);
