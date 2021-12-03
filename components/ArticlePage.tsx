@@ -7,6 +7,7 @@ import RightSideContent from "./Widgets/RightSideContent";
 import { RichText } from "@graphcms/rich-text-react-renderer";
 import Comments from "./Comments";
 import CommentForm from "./CommentForm";
+import Image from "next/image";
 
 const ArticlePage = ({ post, nextPosts }: { post: Post; nextPosts: [] }) => {
   return (
@@ -45,7 +46,7 @@ const ArticlePage = ({ post, nextPosts }: { post: Post; nextPosts: [] }) => {
       <div className=" flex justify-between gap-10 ">
         <div className="max-w-3xl">
           <div className=" lg:mb-4h-[35rem] pb-5 mb-4 border-blue-100 border-b-[1px]">
-            <img
+            <Image
               className=" w-full h-full object-cover"
               src={post.featuredImage.url}
               alt={post.title}

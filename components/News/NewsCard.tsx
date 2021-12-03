@@ -4,6 +4,8 @@ import { Post } from "../../types";
 import RandomNews from "./RandomNews";
 import moment from "moment";
 import StyledNews from "./StyledNews";
+import Image from "next/image";
+
 type News = {
   posts: Post[];
 };
@@ -32,7 +34,7 @@ const NewsCard = ({ posts }: News) => {
             >
               <div className="flex-auto cursor-pointer max-h-[7.5rem] lg:w-[13rem] lg:flex-none">
                 <Link href={`/article/${post.id}/title/${post.slug}`}>
-                  <img
+                  <Image
                     className="object-cover h-full w-full "
                     src={post.featuredImage.url}
                     alt={post.title}

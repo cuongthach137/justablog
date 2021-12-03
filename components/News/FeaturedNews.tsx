@@ -3,7 +3,7 @@ import Link from "next/link";
 import { joinClx } from "../../utils/joinClassName";
 import { Post } from "../../types";
 import trimText from "../../utils/trimText";
-
+import Image from "next/image";
 type NewsProps = {
   posts: Post[];
 };
@@ -89,7 +89,7 @@ const FeaturedNews = ({ posts }: NewsProps) => {
                 <div className={inner}>
                   <div className={innerMostImg}>
                     <Link href={`/article/${post.id}/title/${post.slug}`}>
-                      <img
+                      <Image
                         className={img}
                         src={post.featuredImage?.url}
                         alt={post.title}

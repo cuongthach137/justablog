@@ -2,6 +2,8 @@ import React from "react";
 import Link from "next/link";
 import { Post } from "../../types";
 import moment from "moment";
+import Image from "next/image";
+
 const StyledNews = ({ post }: { post: Post }) => {
   return (
     <div className=" bg-blue-600 text-white">
@@ -33,7 +35,7 @@ const StyledNews = ({ post }: { post: Post }) => {
           <div className="absolute after:block after:w-48 after:bg-white after:h-[2px] right-[-6px] bottom-[10px] " />
         </div>
         <Link href={`/article/${post.id}/title/${post.slug}`}>
-          <img
+          <Image
             className="w-full cursor-pointer"
             src={post.featuredImage.url}
             alt={post.title}
