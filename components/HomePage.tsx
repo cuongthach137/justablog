@@ -15,6 +15,7 @@ const Main = ({ posts }: { posts: Categories }) => {
           <NewsCard posts={posts.international} />
           <NewsCard posts={posts.entertainment} />
           <NewsCard posts={posts.business} />
+          <NewsCard posts={posts.tech} />
         </div>
         <div className=" hidden lg:block">
           <RightSideContent
