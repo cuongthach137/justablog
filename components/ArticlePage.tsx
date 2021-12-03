@@ -5,6 +5,8 @@ import capitalize from "../utils/capitalize";
 import Link from "next/link";
 import RightSideContent from "./Widgets/RightSideContent";
 import { RichText } from "@graphcms/rich-text-react-renderer";
+import Comments from "./Comments";
+import CommentForm from "./CommentForm";
 
 const ArticlePage = ({ post, nextPosts }: { post: Post; nextPosts: [] }) => {
   return (
@@ -102,8 +104,8 @@ const ArticlePage = ({ post, nextPosts }: { post: Post; nextPosts: [] }) => {
               }}
             />
           </div>
-          <div className="mb-5">
-            <h2 className="inline-block relative text-3xl mb-3 mt-10 before:absolute before:bg-transparent before:border-r-2 before:border-t-2 before:border-solid before:border-blue-500 before-w-full before:z-0 z-10 py-[12px] px-4 ">
+          <div className="mb-20">
+            <h2 className="inline-block relative text-3xl mb-3 mt-10 before:absolute before:bg-transparent before:border-r-2 before:border-t-2 before:border-solid before:border-blue-500 before-w-full before:z-0 z-10 py-[12px] pr-4 ">
               Up Next
             </h2>
             {nextPosts.map((post: Post) => {
@@ -121,11 +123,9 @@ const ArticlePage = ({ post, nextPosts }: { post: Post; nextPosts: [] }) => {
             })}
           </div>
           <div>
-            <div className="mb-5">
-              <h2 className="text-3xl">
-                There are {post.comments.length} comments
-              </h2>
-            </div>
+            {console.log(post.comments)}
+            <Comments comments={post.comments} />
+            <CommentForm postSlug={post.slug} />
           </div>
         </div>
 

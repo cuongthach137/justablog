@@ -1,3 +1,10 @@
+export type Comment = {
+  name: string;
+  email: string;
+  comment: string;
+  createdAt?: Date;
+};
+
 export type Post = {
   id: string;
   title: string;
@@ -5,7 +12,7 @@ export type Post = {
     name: string;
     id: string;
   };
-  comments: [];
+  comments: Comment[];
   excerpt: string;
   featuredImage: {
     url: string;

@@ -31,22 +31,23 @@ const NewsCard = ({ posts }: News) => {
                     {post.title}
                   </Link>
                 </div>
-                <div className="flex gap-1 text-xs lg:text-sm">
-                  <div>
-                    <span className="font-semibold">By</span>{" "}
-                    <span className="text-blue-500 cursor-pointer">
-                      <Link href={`/author/${post.author.name}`}>
-                        {post.author.name}
-                      </Link>
-                    </span>
+                <div className="text-xs lg:text-sm">
+                  <div className="font-semibold inline-block">By</div>{" "}
+                  <div className="text-blue-500 cursor-pointer inline-block">
+                    <Link href={`/author/${post.author.name}`}>
+                      {post.author.name}
+                    </Link>
                   </div>
-                  <div>|</div>
-                  <div>{moment(post.createdAt).calendar()}</div>
-                  <div className="cursor-pointer">
-                    {post.comments.length > 0
-                      ? "|" + post.comments.length + "comment(s)"
-                      : ""}
+                  <div className="inline-block mx-1">|</div>
+                  <div className="inline-block">
+                    {moment(post.createdAt).calendar()}
                   </div>
+                  {post.comments.length > 0 && (
+                    <div className="cursor-pointer inline-block">
+                      <div className="inline-block mx-1">|</div>
+                      {post.comments.length + " comment(s)"}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

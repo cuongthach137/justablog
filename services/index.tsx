@@ -1,4 +1,5 @@
 import { gql, GraphQLClient, request } from "graphql-request";
+import { Comment } from "../types";
 
 const graphqlAPI = process.env.GMS_ENDPOINT || "";
 
@@ -137,6 +138,10 @@ export const getPost = async (title: string, id: string) => {
         }
         comments {
           id
+          createdAt
+          name
+          email
+          comment
         }
         featuredImage {
           url
@@ -213,4 +218,16 @@ export const getNextPosts = async (categories: string[], slug: string) => {
   `;
   const result = await client.request(query, { categories, slug });
   return result.posts;
+};
+
+export const submitComment = async (comment: Comment) => {
+  const result = await fetch("/api/comment", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(comment),
+  });
+
+  return result.json();
 };

@@ -47,7 +47,15 @@ const Layout = ({ title, description, keywords, children }: LayoutType) => {
         <WeatherWidget />
         {!value && children({ toggleValue, value })}
         <SideBar toggleActive={toggleValue} isActive={value} />
-        <footer>sdasd</footer>
+        <footer className="bg-blue-700 mt-10 flex justify-center text-white py-5">
+          <p>
+            Most of the articles on this website are straight copies from The
+            Verge. The name of the author for each article is fictional and does
+            not associate with any particlar individual. The whole website is
+            built for educational purposes only
+          </p>
+          <div></div>
+        </footer>
       </div>
     </>
   );

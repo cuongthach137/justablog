@@ -84,7 +84,13 @@ const InterNews = ({ posts }: NewsProps) => {
               <div className={outerMost}>
                 <div className={inner}>
                   <div className={innerMostImg}>
-                    <img className={img} src={post.featuredImage?.url} alt="" />
+                    <Link href={`/article/${post.id}/title/${post.slug}`}>
+                      <img
+                        className={img}
+                        src={post.featuredImage?.url}
+                        alt=""
+                      />
+                    </Link>
                   </div>
                   <div className={innerMostText}>
                     <div className="text-xs lg:hidden ">Daily bites</div>
