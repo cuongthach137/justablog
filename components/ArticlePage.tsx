@@ -90,7 +90,7 @@ const ArticlePage = ({ post, nextPosts }: { post: Post; nextPosts: [] }) => {
                       className="font-semibold text-blue-500 hover:text-blue-800 underline"
                       href={href}
                       target={openInNewTab ? "_blank" : "_self"}
-                      rel={rel || "noopener noreferrer"}
+                      rel={"noopener noreferrer"}
                       {...rest}
                     >
                       {children}
