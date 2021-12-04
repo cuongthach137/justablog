@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import { joinClx } from "../../utils/joinClassName";
 import { Post } from "../../types";
-import trimText from "../../utils/trimText";
 
 type NewsProps = {
   posts: Post[];
@@ -11,42 +10,42 @@ type NewsProps = {
 const FeaturedNews = ({ posts }: NewsProps) => {
   return (
     <div className="p-4 mb-10">
-      <div className="mb-4 w-full bg-gradient-to-r from-blue-700 to-blue-300 p-[2px] 2xl:flex 2xl:flex-wrap 2xl:p-[2px]">
+      <div className="mb-4 w-full bg-gradient-to-r from-blue-700 to-blue-300 p-[2px] lg:flex lg:flex-wrap lg:p-[2px]">
         {/* daily bites */}
         {posts &&
           posts.length > 0 &&
           posts.map((post: Post, index) => {
             const half = index === 0 || index === 3;
             const outerMost = joinClx(
-              "w-full 2xl:p-[2px] 2xl:h-80 2xl:relative border-blue-200 2xl:border-none ",
-              half ? "2xl:w-2/3" : "2xl:w-1/3 ",
-              index === 7 ? "2xl:hidden" : "",
+              "w-full border-blue-200  lg:p-[2px] lg:h-80 lg:relative lg:border-none ",
+              half ? "lg:w-2/3" : "lg:w-1/3 ",
+              index === 7 ? "lg:hidden" : "",
               index === posts.length - 2 ? "" : "border-b-[1px]"
             );
 
             const inner = joinClx(
-              "flex items-center gap-2 2xl:gap-0 p-2 bg-black 2xl:p-0 2xl:w-full 2xl:h-full ",
-              half ? "2xl:h-full" : "2xl:block"
+              "md-h-96  flex items-center bg-black gap-2 lg:gap-0 lg:p-0 lg:w-full lg:h-full ",
+              half ? "" : "lg:block"
             );
 
             const innerMostText = joinClx(
-              "flex-none  2xl:p-4 ",
+              "flex-none lg:p-2",
               index !== 0 ? "w-2/3 " : "w-[10rem] ",
-              half ? "2xl:w-1/2 2xl:h-full" : "2xl:w-full "
+              half ? "lg:w-1/2 lg:h-full lg:p-5" : "lg:w-full "
             );
             const innerMostImg = joinClx(
-              "cursor-pointer ",
-              half ? "2xl:h-full" : "2xl:w-full 2xl:h-2/3"
+              "cursor-pointer w-full",
+              half ? "lg:h-full" : "lg:w-full lg:h-3/5 2xl:h-2/3"
             );
 
             const img = joinClx(
-              "object-cover 2xl:h-full ",
-              half ? "" : "2xl:w-full"
+              "object-cover lg:h-full w-full ",
+              half ? "" : "lg:w-full"
             );
 
             const titleClx = joinClx(
-              "text-lg leading-3  font-semibold max-w-[9rem] cursor-pointer 2xl:w-full text-white hover:text-blue-500",
-              half ? "2xl:text-5xl" : "2xl:text-xl"
+              "text-lg leading-3 text-white hover:text-blue-500 font-semibold max-w-[9rem] cursor-pointer 2xl:w-full ",
+              half ? "lg:text-4xl" : "2xl:text-lg"
             );
 
             const creditClx = joinClx(
@@ -57,9 +56,9 @@ const FeaturedNews = ({ posts }: NewsProps) => {
               return (
                 <div
                   key={post.id}
-                  className="hidden 2xl:flex gap-5 items-center justify-center w-full m-12 "
+                  className="hidden gap-5 items-center justify-center w-full m-12 2xl:flex"
                 >
-                  <div className="text-right text-2xl flex-1 ">
+                  <div className="text-right flex-1 text-2xl">
                     <div className="text-white hover:text-blue-100 cursor-pointer">
                       <Link href={`/article/${post.id}/title/${post.slug}`}>
                         {post.title}
@@ -97,13 +96,9 @@ const FeaturedNews = ({ posts }: NewsProps) => {
                     </Link>
                   </div>
                   <div className={innerMostText}>
-                    <div className="text-xs 2xl:hidden text-white">
-                      Daily bites
-                    </div>
+                    <div className="text-xs lg:hidden text-white">Featured</div>
                     <Link href={`/article/${post.id}/title/${post.slug}`}>
-                      <span className={titleClx}>
-                        {trimText(post.title, 80)}
-                      </span>
+                      <span className={titleClx}>{post.title}</span>
                     </Link>
                     <div className={creditClx}>
                       <span className="font-semibold text-blue-500">By </span>

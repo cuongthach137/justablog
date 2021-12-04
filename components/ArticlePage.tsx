@@ -42,7 +42,7 @@ const ArticlePage = ({ post, nextPosts }: { post: Post; nextPosts: [] }) => {
           </span>
         </div>
       </div>
-      <div className=" flex justify-between gap-10 ">
+      <div className=" flex gap-10">
         <div className="max-w-3xl">
           <div className=" 2xl:mb-4h-[35rem] pb-5 mb-4 border-blue-100 border-b-[1px]">
             <img
@@ -128,7 +128,7 @@ const ArticlePage = ({ post, nextPosts }: { post: Post; nextPosts: [] }) => {
         </div>
 
         {nextPosts.length > 0 && (
-          <div className="hidden 2xl:block">
+          <div className="hidden lg:block max-w-xs">
             <RightSideContent
               title="up next"
               category={post.categories[0]?.name}
