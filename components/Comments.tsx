@@ -6,7 +6,7 @@ import { joinClx } from "../utils/joinClassName";
 const Comments = ({ comments }: { comments: Comment[] }) => {
   return (
     <div className="mb-5 text-gray-800 ">
-      <h2 className="text-2xl lg:text-3xl mb-5">
+      <h2 className="text-2xl 2xl:text-3xl mb-5">
         {!comments.length
           ? "There are 0 comments"
           : comments.length === 1

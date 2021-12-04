@@ -10,7 +10,7 @@ import CommentForm from "./CommentForm";
 
 const ArticlePage = ({ post, nextPosts }: { post: Post; nextPosts: [] }) => {
   return (
-    <div className="container mx-auto px-4 lg:px-60">
+    <div className="container mx-auto px-4 2xl:px-60">
       <div className="flex gap-1 mb-5">
         {post.categories.map((c) => (
           <div
@@ -25,13 +25,13 @@ const ArticlePage = ({ post, nextPosts }: { post: Post; nextPosts: [] }) => {
         ))}
       </div>
       <div className="mb-5">
-        <h1 className="text-3xl leading-[1.2] mb-3 lg:text-5xl lg:mb-4 font-semibold ">
+        <h1 className="text-3xl leading-[1.2] mb-3 2xl:text-5xl 2xl:mb-4 font-semibold ">
           {post.title}
         </h1>
-        <div className="mb-2 lg:mb-4">
-          <i className="text-lg lg:text-xl text-gray-500">{post.excerpt}</i>
+        <div className="mb-2 2xl:mb-4">
+          <i className="text-lg 2xl:text-xl text-gray-500">{post.excerpt}</i>
         </div>
-        <div className="text-sm lg:text-lg">
+        <div className="text-sm 2xl:text-lg">
           By{" "}
           <span className="text-blue-500 cursor-pointer">
             <Link href={`/author/${post.author.name}`}>{post.author.name}</Link>
@@ -44,7 +44,7 @@ const ArticlePage = ({ post, nextPosts }: { post: Post; nextPosts: [] }) => {
       </div>
       <div className=" flex justify-between gap-10 ">
         <div className="max-w-3xl">
-          <div className=" lg:mb-4h-[35rem] pb-5 mb-4 border-blue-100 border-b-[1px]">
+          <div className=" 2xl:mb-4h-[35rem] pb-5 mb-4 border-blue-100 border-b-[1px]">
             <img
               className=" w-full h-full object-cover"
               src={post.featuredImage.url}
@@ -75,7 +75,7 @@ const ArticlePage = ({ post, nextPosts }: { post: Post; nextPosts: [] }) => {
                 ),
                 blockquote: ({ children }) => {
                   return (
-                    <div className="ml-5 lg:ml-10 float-right lg:max-w-[20rem] ">
+                    <div className="ml-5 2xl:ml-10 float-right 2xl:max-w-[20rem] ">
                       <aside>
                         <q className="block mb-[1.2rem] pr-[1.25rem] pt-4 text-3xl font-semibold uppercase relative after:absolute after:h-[2px] after:top-0 after:left-0 after:right-[18px] after:z-10 after:bg-blue-500 before:absolute before:bg-blue-500 before:w-[35px] before:h-[2px] before:rotate-[-120deg] before:right-[19px] before:top-[1px] italic before:origin-top-right">
                           {children}
@@ -103,7 +103,7 @@ const ArticlePage = ({ post, nextPosts }: { post: Post; nextPosts: [] }) => {
           {nextPosts.length > 0 && (
             <div className="mb-20">
               <div className="relative mt-10 mb-3 inline-block ">
-                <h2 className="text-2xl lg:text-3xl z-10 pt-[12px] pr-4">
+                <h2 className="text-2xl 2xl:text-3xl z-10 pt-[12px] pr-4">
                   Up Next
                 </h2>
                 <div className="absolute w-full h-full top-0 border-indigo-500 border-t-2 border-r-2 skew-x-[20deg]"></div>
@@ -128,7 +128,7 @@ const ArticlePage = ({ post, nextPosts }: { post: Post; nextPosts: [] }) => {
         </div>
 
         {nextPosts.length > 0 && (
-          <div className="hidden lg:block">
+          <div className="hidden 2xl:block">
             <RightSideContent
               title="up next"
               category={post.categories[0]?.name}

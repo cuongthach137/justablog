@@ -21,9 +21,9 @@ const NotFoundPage = () => {
     <Layout title="404 - Page not found">
       {() => (
         <div className="flex items-center justify-center">
-          <div className="w-96 h-80 lg:w-[35rem] lg:m-48 border-t-8 border-blue-500 border-[1px] flex items-center justify-center ">
+          <div className="w-96 h-80 2xl:w-[35rem] 2xl:m-48 border-t-8 border-blue-500 border-[1px] flex items-center justify-center ">
             <div className="px-4">
-              <div className="text-xl lg:text-3xl font-bold text-center mb-2">
+              <div className="text-xl 2xl:text-3xl font-bold text-center mb-2">
                 404 - You have fallen into the realm of darkness. 💀💀💀
               </div>
               <div className="mb-4 text-lg">

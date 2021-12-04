@@ -85,7 +85,7 @@ const Layout = ({ title, description, keywords, children }: LayoutType) => {
         <WeatherWidget />
         {!value && children({ toggleValue, value })}
         <SideBar toggleActive={toggleValue} isActive={value} />
-        <footer className="bg-blue-700 mt-10 lg:text-center text-white py-5 text-xs lg:text-base">
+        <footer className="bg-blue-700 mt-10 2xl:text-center text-white py-5 text-xs 2xl:text-base">
           <p className=" px-4 mb-3">
             Most of the articles on this website are straight copies from The
             Verge. The name of the author for each article is fictional and does

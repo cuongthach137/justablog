@@ -29,9 +29,9 @@ const NewsCard = ({ posts }: News) => {
           return (
             <div
               key={post.id}
-              className="flex gap-3 mb-2 border-t-[1px] border-blue-200 pt-1 lg:gap-0 lg:h-32 "
+              className="flex gap-3 mb-2 border-t-[1px] border-blue-200 pt-1 2xl:gap-0 2xl:h-32 "
             >
-              <div className="flex-auto cursor-pointer max-h-[7.5rem] lg:w-[13rem] lg:flex-none">
+              <div className="flex-auto cursor-pointer max-h-[7.5rem] 2xl:w-[13rem] 2xl:flex-none">
                 <Link href={`/article/${post.id}/title/${post.slug}`}>
                   <img
                     className="object-cover h-full w-full "
@@ -40,13 +40,13 @@ const NewsCard = ({ posts }: News) => {
                   />
                 </Link>
               </div>
-              <div className="flex-none w-2/3 lg:p-3">
-                <div className="font-semibold cursor-pointer hover:text-blue-500 lg:text-xl">
+              <div className="flex-none w-2/3 2xl:p-3">
+                <div className="font-semibold cursor-pointer hover:text-blue-500 2xl:text-xl">
                   <Link href={`/article/${post.id}/title/${post.slug}`}>
                     {post.title}
                   </Link>
                 </div>
-                <div className="text-xs lg:text-sm">
+                <div className="text-xs 2xl:text-sm">
                   <div className="font-semibold inline-block">By</div>{" "}
                   <div className="text-blue-500 cursor-pointer inline-block">
                     <Link href={`/author/${post.author.name}`}>

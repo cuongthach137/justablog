@@ -55,7 +55,7 @@ type SideBarType = {
 
 const SideBar = ({ isActive, toggleActive }: SideBarType) => {
   const sideBarClx = joinClx(
-    " transition-transform p-7 absolute inset-0 bg-white z-20 lg:px-[50rem] lg:grid lg:items-center lg:py-20",
+    " transition-transform p-7 absolute inset-0 bg-white z-20 2xl:px-[50rem] 2xl:grid 2xl:items-center 2xl:py-20",
     isActive ? "translate-x-0" : "translate-x-[-100%] transition-transform"
   );
   const { query, asPath } = useRouter();

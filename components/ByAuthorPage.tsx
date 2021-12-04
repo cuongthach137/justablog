@@ -10,9 +10,9 @@ const ByAuthorPage = ({
   authorName: string;
 }) => {
   return (
-    <div className="container mx-auto lg:px-60">
+    <div className="container mx-auto 2xl:px-60">
       <div>
-        <h1 className="text-2xl lg:text-3xl text-center mb-10">
+        <h1 className="text-2xl 2xl:text-3xl text-center mb-10">
           Posts published by <span className="font-semibold">{authorName}</span>
           :
         </h1>
