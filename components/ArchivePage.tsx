@@ -4,7 +4,7 @@ import NewsCard from "./News/NewsCard";
 
 const ArchivePage = ({ posts }: { posts: Post[] }) => {
   return (
-    <div className="container mt-16 px-60 mx-auto">
+    <div className="container mt-16 lg:px-60 mx-auto">
       <NewsCard posts={posts} />
     </div>
   );
