@@ -10,8 +10,8 @@ const Main = ({ posts }: { posts: Categories }) => {
       <div className="bg-black lg:px-60">
         <FeaturedNews posts={posts.featured} />
       </div>
-      <div className="lg:flex lg:gap-5 lg:px-32 container lg:mx-auto">
-        <div>
+      <div className="lg:flex lg:gap-5 lg:px-60 container lg:mx-auto">
+        <div className="max-w-3xl">
           <NewsCard posts={posts.international} />
           <NewsCard posts={posts.entertainment} />
           <NewsCard posts={posts.business} />
