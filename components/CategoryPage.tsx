@@ -10,8 +10,8 @@ const CategoryPage = ({
   category: string;
 }) => {
   return (
-    <div>
-      <h1 className="text-center text-2xl uppercase mb-10">{category}</h1>
+    <div className="mt-16">
+      <h1 className="text-center text-2xl uppercase mb-14">{category}</h1>
       <div className="container 2xl:mx-auto 2xl:flex 2xl:gap-20 2xl:px-60 ">
         <div>
           <NewsCard posts={posts} />

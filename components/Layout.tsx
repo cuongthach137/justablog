@@ -8,6 +8,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { BsGithub } from "react-icons/bs";
 import { BsArrowUpCircle } from "react-icons/bs";
 import Link from "next/link";
+import { menuItems } from "../constants";
 
 type LayoutType = {
   title: string;
@@ -63,7 +64,7 @@ const Layout = ({ title, description, keywords, children }: LayoutType) => {
       <div>
         <nav
           ref={navRef}
-          className="flex justify-between items-center p-4 w-full bg-white transition-all  z-20"
+          className="flex justify-between items-center px-4 w-full h-16 bg-white transition-all  z-20"
         >
           <div className="flex gap-2 text-lg  items-center">
             <Link href="/">
@@ -75,6 +76,16 @@ const Layout = ({ title, description, keywords, children }: LayoutType) => {
               Hi,
             </div>
             <div className="text-gray-500">Champ!</div>
+          </div>
+          <div className="hidden md:flex md:gap-3 lg:gap-9 text-lg">
+            {menuItems.map((item) => (
+              <div
+                key={item.name}
+                className="text-gray-700 hover:text-blue-500 cursor-pointer"
+              >
+                <Link href={item.location}>{item.name}</Link>
+              </div>
+            ))}
           </div>
           <div className="w-9 h-9 bg-blue-700 rounded-md flex items-center justify-center cursor-pointer text-white">
             <div>

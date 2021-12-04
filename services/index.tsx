@@ -145,6 +145,7 @@ export const getPost = async (title: string, id: string) => {
         slug
         title
         excerpt
+        createdAt
         categories {
           slug
           name
@@ -180,9 +181,17 @@ export const getPosts = async () => {
   const query = gql`
     query MyQuery() {
       posts {
-        slug
+        id slug
         title
-       id
+        author {
+          name id
+        }
+        excerpt
+        comments {
+          id
+        }featuredImage {
+      url
+    }createdAt
       }
     }
   `;

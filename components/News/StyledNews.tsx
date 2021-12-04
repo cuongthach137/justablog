@@ -27,7 +27,7 @@ const StyledNews = ({ post }: { post: Post }) => {
           )}
         </div>
       </div>
-      <div className="relative pb-2">
+      <div className="relative">
         <div className="absolute right-[2rem]">
           <div className="absolute before:block before:w-8 before:bg-white before:h-[2px] before:rotate-[50deg] " />
           <div className="absolute after:block after:w-48 after:bg-white after:h-[2px] right-[-6px] bottom-[10px] " />

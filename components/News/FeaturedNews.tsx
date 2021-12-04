@@ -10,28 +10,29 @@ type NewsProps = {
 const FeaturedNews = ({ posts }: NewsProps) => {
   return (
     <div className="p-4 mb-10">
-      <div className="mb-4 w-full bg-gradient-to-r from-blue-700 to-blue-300 p-[2px] lg:flex lg:flex-wrap lg:p-[2px]">
+      <div className="mb-4 w-full bg-gradient-to-r from-blue-700 to-blue-300 p-[2px] lg:flex lg:flex-wrap lg:p-[1.2px]">
         {/* daily bites */}
         {posts &&
           posts.length > 0 &&
           posts.map((post: Post, index) => {
             const half = index === 0 || index === 3;
             const outerMost = joinClx(
-              "w-full border-blue-200  lg:p-[2px] lg:h-80 lg:relative lg:border-none ",
+              "w-full border-blue-200 lg:p-[1.2px] lg:h-80 lg:relative lg:border-none overflow-hidden",
               half ? "lg:w-2/3" : "lg:w-1/3 ",
               index === 7 ? "lg:hidden" : "",
               index === posts.length - 2 ? "" : "border-b-[1px]"
             );
 
             const inner = joinClx(
-              "md-h-96  flex items-center bg-black gap-2 lg:gap-0 lg:p-0 lg:w-full lg:h-full ",
-              half ? "" : "lg:block"
+              "md-h-96 flex items-center bg-black gap-2 lg:gap-0 lg:p-0 lg:w-full lg:h-full ",
+              half ? "" : "lg:block",
+              index === 3 ? "lg:flex-row-reverse lg:text-right" : ""
             );
 
             const innerMostText = joinClx(
-              "flex-none lg:p-2",
+              "flex-none p-2",
               index !== 0 ? "w-2/3 " : "w-[10rem] ",
-              half ? "lg:w-1/2 lg:h-full lg:p-5" : "lg:w-full "
+              half ? "lg:w-1/2 lg:h-full lg:p-5" : "lg:w-full lg:p-3 "
             );
             const innerMostImg = joinClx(
               "cursor-pointer w-full",
