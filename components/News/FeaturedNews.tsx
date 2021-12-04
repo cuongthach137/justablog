@@ -117,14 +117,14 @@ const FeaturedNews = ({ posts }: NewsProps) => {
                 </div>
                 {index === 0 && (
                   <div className="hidden lg:block absolute left-[7rem] bottom-5">
-                    <div className="absolute before:block before:w-12 before:bg-blue-500 before:h-[4px] before:rotate-[130deg] " />
-                    <div className="absolute after:block after:w-96 after:bg-blue-500 after:h-[4px] left-[2.4rem] bottom-[13px] " />
+                    <div className="absolute before:block before:w-12 before:bg-blue-700 before:h-[4px] before:rotate-[130deg] " />
+                    <div className="absolute after:block after:w-96 after:bg-blue-700 after:h-[4px] left-[2.4rem] bottom-[13px] " />
                   </div>
                 )}
                 {index === 3 && (
                   <div className="hidden lg:block absolute right-[7rem] bottom-5">
-                    <div className="absolute before:block before:w-12 before:bg-blue-200 before:h-[4px] before:rotate-[50deg] " />
-                    <div className="absolute after:block after:w-96 after:bg-blue-200 after:h-[4px] right-[-10px] bottom-[13px] " />
+                    <div className="absolute before:block before:w-12 before:bg-blue-300 before:h-[4px] before:rotate-[50deg] " />
+                    <div className="absolute after:block after:w-96 after:bg-blue-300 after:h-[4px] right-[-10px] bottom-[13px] " />
                   </div>
                 )}
               </div>
