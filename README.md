@@ -2,4 +2,4 @@
 
 Tiny project to familiarize myself with Tailwind Nextjs Graphql GraphqlCMS and Typescript
 
-NOTE: I took inspiration for the design from various sources, notably The Verge :D since my main focus was getting started with the above languages and knowledge
+NOTE: I took inspiration for the design from various sources, notably The Verge :D since my main focus was getting started with those above
