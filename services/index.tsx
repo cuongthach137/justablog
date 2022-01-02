@@ -179,7 +179,7 @@ export const getPost = async (title: string, id: string) => {
 
 export const getPosts = async () => {
   const query = gql`
-    query MyQuery() {
+    query MyQuery(orderBy: createdAt_DESC) {
       posts {
         id slug
         title
